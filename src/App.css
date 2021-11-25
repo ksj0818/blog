@@ -4,7 +4,6 @@
 }
 .App {
   font-family: "Karla", sans-serif;
-  text-align: center;
 }
 
 .black-nav {
@@ -18,28 +17,19 @@
   box-sizing: border-box;
 }
 
-.list {
-  margin-top: 30px;
-  text-align: left;
-  padding-left: 20px;
-  padding-right: 20px;
+.readContent {
+  margin: var(--base-space);
+  padding-bottom: var(--base-space);
+  width: 15%;
+  border-bottom: 2px solid black;
 }
 
-.list > h3 > span {
+.point {
   cursor: pointer;
 }
 
-.title {
-  padding: var(--base-space);
-  display: flex;
-  flex-direction: column;
-}
-.title__text {
-  font-weight: 600;
-  font-size: 30px;
-}
 .modal {
+  background-color: #eee;
   margin-top: var(--base-space);
   padding: var(--base-space);
-  background-color: #eee;
 }
