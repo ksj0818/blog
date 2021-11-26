@@ -6,6 +6,11 @@
   font-family: "Karla", sans-serif;
 }
 
+a {
+  text-decoration: none;
+  color: white;
+}
+
 .black-nav {
   background-color: black;
   width: 100%;
@@ -27,9 +32,29 @@
 .point {
   cursor: pointer;
 }
+.point:hover {
+  color: tomato;
+}
 
 .modal {
   background-color: #eee;
   margin-top: var(--base-space);
   padding: var(--base-space);
+}
+
+.publish {
+  margin: var(--base-space);
+}
+
+.publish input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.publish button {
+  display: block;
+
+  margin-top: 10px;
 }

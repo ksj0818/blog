@@ -5,21 +5,25 @@ function App() {
   let [title, setTitle] = useState(["맛집 추천", "부대찌개", "치킨", "피자"]);
   let [modal, setModal] = useState(false);
   let [like, setLike] = useState([0, 0, 0, 0]);
-
+  let [index, setIndex] = useState(0);
+  let [input, setInput] = useState("");
   return (
     <div className="App">
-      <nav className="black-nav">
-        <span>개발 Blog</span>
-      </nav>
+      {
+        //블랙네비
+        <BlackNav></BlackNav>
+      }
       {
         // readContents Title
         title.map((t, i) => {
           return (
-            <article className="readContent" key={t}>
+            <article className="readContent" key={i}>
               <h3
                 className="point"
                 onClick={() => {
-                  console.log((like[i] += 1));
+                  let newIndex = i;
+                  setIndex(newIndex);
+                  console.log(index);
                 }}
               >
                 {t}
@@ -29,8 +33,8 @@ function App() {
                 className="point"
                 onClick={() => {
                   let newLike = [...like];
-                  console.log(newLike[i]);
                   newLike[i]++;
+                  // state 업데이트 시 인덱스 제외해야 error가 안남
                   setLike(newLike);
                 }}
               >
@@ -41,6 +45,27 @@ function App() {
           );
         })
       }
+
+      <div className="publish">
+        <input
+          onChange={(e) => {
+            setInput(e.target.value);
+          }}
+        />
+        <button
+          onClick={() => {
+            let newTitle = [...title];
+            let newLike = [...like];
+            newTitle.push(input);
+            newLike.push(0);
+            setTitle(newTitle);
+            setLike(newLike);
+          }}
+        >
+          추가
+        </button>
+      </div>
+
       {/* 반응형 UI */}
       <button
         onClick={() => {
@@ -51,7 +76,7 @@ function App() {
       </button>
       {
         // Components
-        modal ? <Modal title={title[0]}></Modal> : null
+        modal ? <Modal title={title[index]}></Modal> : null
       }
     </div>
   );
@@ -64,6 +89,23 @@ function Modal(props) {
       <p>날짜</p>
       <p>내용</p>
     </div>
+  );
+}
+
+function BlackNav() {
+  return (
+    <nav className="black-nav">
+      <span>
+        <a
+          href="/"
+          onClick={(e) => {
+            e.preventDefault();
+          }}
+        >
+          개발 Blog
+        </a>
+      </span>
+    </nav>
   );
 }
 
