@@ -4,7 +4,11 @@
 }
 .App {
   font-family: "Karla", sans-serif;
-  text-align: center;
+}
+
+a {
+  text-decoration: none;
+  color: white;
 }
 
 .black-nav {
@@ -18,28 +22,43 @@
   box-sizing: border-box;
 }
 
-.list {
-  margin-top: 30px;
-  text-align: left;
-  padding-left: 20px;
-  padding-right: 20px;
+.readContent {
+  margin: var(--base-space);
+  padding-bottom: var(--base-space);
+  width: 15%;
+  border-bottom: 2px solid black;
 }
 
+<<<<<<< HEAD
 .list > span {
+=======
+.point {
+>>>>>>> seongjun
   cursor: pointer;
 }
+.point:hover {
+  color: tomato;
+}
 
-.title {
-  padding: var(--base-space);
-  display: flex;
-  flex-direction: column;
-}
-.title__text {
-  font-weight: 600;
-  font-size: 30px;
-}
 .modal {
+  background-color: #eee;
   margin-top: var(--base-space);
   padding: var(--base-space);
-  background-color: #eee;
+}
+
+.publish {
+  margin: var(--base-space);
+}
+
+.publish input {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.publish button {
+  display: block;
+
+  margin-top: 10px;
 }
